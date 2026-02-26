@@ -1,0 +1,26 @@
+service: "service:svc"
+
+labels:
+  owner: "your_name"
+  project: "energy_prediction"
+
+include:
+  - "*.py"
+  - "requirements.txt"
+  - "bentofile.yaml"
+  - "model/"
+
+python:
+  packages:
+    - bentoml
+    - pandas
+    - scikit-learn
+    - pydantic
+
+docker:
+  distro: debian
+  system_packages:
+    - curl
+    - wget
+  envs:
+    - BENTOML_CONFIG=/bentoml_config.yaml

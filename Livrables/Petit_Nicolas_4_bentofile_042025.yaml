@@ -1,0 +1,16 @@
+service: "service:svc"
+labels:
+  owner: "user"
+  project: "energy-prediction"
+include:
+  - "*.py"
+  - "*.pkl"
+  - "requirements.txt"
+python:
+  packages:
+    - bentoml
+    - scikit-learn
+    - pandas
+    - pydantic
+docker:
+  distro: "debian"
